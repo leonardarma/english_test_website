@@ -1,0 +1,32 @@
+{% extends 'english_test/base.html' %}
+{% block content %}
+    <div class="container">
+        <div class="textcenter">
+
+            <h1 class="pagetitle">English Battle {{ joueur.prenom }}, meilleur score : {{ joueur.max_lvl }}</h1>
+            <br />
+            <a href="{% url 'deconnexion' %}">Déconnexion</a>
+            <br />
+            <form method="post" action="jeu" class="center">
+                <table>
+                    <tr>
+                        <td colspan="3" style="text-align: center">Question 1 : Le verbe demeurer
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            abide
+                        </td>
+                        <td><input name="preterit" type="text" /></td>
+                        <td><input name="participe_passe" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="text-align: center">
+                            <input type="submit" value="Envoyer" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+{% endblock %}

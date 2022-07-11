@@ -1,0 +1,20 @@
+{% load static %}
+<html>
+    <head>
+        <meta charset="UTH-8">
+        <title>EnglishBattle</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link href="{% static 'english_test/style.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        {% block content%}
+        {% endblock %}
+
+        <footer class="center" id="footer">
+            Blog réalisé par Sharpy
+        </footer>
+    </body>
+
+</html>

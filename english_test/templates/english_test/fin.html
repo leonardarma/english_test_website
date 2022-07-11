@@ -1,0 +1,47 @@
+{% extends 'english_test/base.html' %}
+{% block content %}
+    <div class="container">
+        <div class="textcenter">
+
+            <h1 class="pagetitle">English Battle {{joueur.prenom}}, meilleur score:{{max_lvl}} verbes
+            </h1>
+            <br />
+            <a href="{% url 'deconnexion' %}">Déconnexion</a>
+            <br />
+            <form method="get" action="{% url 'jeu' %}" class="center">
+                <table>
+                    <tr>
+                        <td colspan="3" style="text-align: center">
+                            <h2>GAME OVER</h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="text-align: center">Question 10 : Le verbe souffler
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            blow
+                        </td>
+                        <td>
+                            <span>blown</span>
+                        </td>
+                        <td>
+                            <span>blew</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            Votre score est de 10
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="text-align: center">
+                            <input type="submit" value="Recommencer" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'english_test/base.html' %}
+{% block content %}
+
+    <div class="container">
+        <div class="textcenter">
+            <h1 class="pagetitle">English Battle Inscription</h1>
+            <br />
+            <a href={% url 'index' %}>Connexion</a>
+            <br />
+            <form method="post" action="inscription" class="center">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                <table>
+                    {{ form.as_table }}
+                    <tr>
+                        <td colspan="2" style="text-align: center"><input type="submit" value="Valider" /></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+{% endblock %}
