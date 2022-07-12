@@ -82,16 +82,17 @@ def jeu(request):
             
     elif request.method == 'GET':
         form = QuestionForm()
-        print(joueur.partie.latest('question').question.earliest('date_envoie').date_envoie.timestamp()-60<time())
-        if joueur.partie.latest('question').question.earliest('date_envoie').date_envoie.timestamp()-60<time():
+        print(joueur.partie.latest('question__date_envoie').question.earliest('date_envoie').date_envoie.timestamp()-60<time())
+        
+        if joueur.partie.latest('question__date_envoie').question.earliest('date_envoie').date_envoie.timestamp()-60<time():
             partie = joueur.partie.latest('question')
-            print(partie.score)
+            print(partie.question.earliest('date_envoie').date_envoie.timestamp())
             verbe = choice(list(Verbe.objects.all()))
             question = Question(verbe = verbe, partie = partie)
             question.save()
         else:
-            print(partie.score)
             partie = Partie(joueur = joueur, score = 0)
+            print(partie.score)
             partie.save()
             verbe = choice(list(Verbe.objects.all()))
             question = Question(verbe = verbe, partie = partie)
