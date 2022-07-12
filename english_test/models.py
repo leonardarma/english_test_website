@@ -22,7 +22,7 @@ class Question(models.Model):
     reponse_participe_passe = models.CharField(max_length=200)
     reponse_preterit = models.CharField(max_length=200)
     date_envoie = models.DateTimeField(auto_now_add=True, auto_now=False)
-    date_reponse = models.DateTimeField(blank=True)
+    date_reponse = models.DateTimeField(null=True)
     partie = models.ForeignKey('Partie', on_delete=models.PROTECT, related_name="question")
     verbe = models.ForeignKey('Verbe', on_delete=models.PROTECT)
 

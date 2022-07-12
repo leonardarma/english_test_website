@@ -3,22 +3,30 @@
     <div class="container">
         <div class="textcenter">
 
-            <h1 class="pagetitle">English Battle {{ joueur.prenom }}, meilleur score : {{ joueur.max_lvl }}</h1>
+            <h1 class="pagetitle">English Battle {{ joueur.prenom }}, meilleur score : {{ best }}</h1>
+            {% comment %} Ajout {% endcomment %}
+            <br />
+            <h2 class="pagetitle">Score : {{ partie.score }}</h2>
+
+            {% comment %} Fin ajout {% endcomment %}
             <br />
             <a href="{% url 'deconnexion' %}">Déconnexion</a>
             <br />
             <form method="post" action="jeu" class="center">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
                 <table>
                     <tr>
-                        <td colspan="3" style="text-align: center">Question 1 : Le verbe demeurer
+                        <td colspan="3" style="text-align: center">Question 1 : Le verbe {{ question.verbe.traduction }}
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            abide
+                            {{ question.verbe.base_verbale }}
                         </td>
-                        <td><input name="preterit" type="text" /></td>
-                        <td><input name="participe_passe" type="text" /></td>
+                        <td>{{ form.reponse_preterit }}</td>
+                        <td>{{ form.reponse_participe_passe }}</td>
+                        
                     </tr>
                     <tr>
                         <td colspan="3" style="text-align: center">
